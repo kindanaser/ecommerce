@@ -13,7 +13,6 @@ export default function ForgetPassword() {
 
     const onSubmit= async email=>{
             const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/auth/sendcode`,email);
-             console.log(data) ;
             if(data.message =='success'){
              formik.resetForm();
              toast.success('Check your email', {

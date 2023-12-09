@@ -15,7 +15,6 @@ export default function SendCode() {
     }
     const onSubmit= async user=>{
         const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/auth/forgotPassword`,user);
-        console.log(data)
         if(data.message =='success'){
          formik.resetForm();
          toast.success('reset password successfully', {
