@@ -6,7 +6,6 @@ import Layout from "./Layout.jsx";
 import Register from "../components/web/register/Register.jsx";
 import Login from "../components/web/login/Login.jsx";
 import Products from "../components/web/products/Products.jsx";
-import CategoriesDetails from "../components/web/categories/categoriesDetails/categoriesDetails.jsx";
 import Cart from "../components/web/cart/Cart.jsx";
 import DashboardHome from "../components/dashboard/home/DashboardHome.jsx";
 import DashboardCategories from "../components/dashboard/categories/DashboardCategories.jsx";
@@ -14,6 +13,7 @@ import ProtectedRoutes from "../components/web/protectedRoute/ProtectedRoutes.js
 import Profile from "../components/web/profile/Profile.jsx";
 import SendCode from "../components/web/login/SendCode.jsx";
 import ForgetPassword from "../components/web/login/ForgetPassword.jsx";
+import CategoriesDetails from "../components/web/categories/categoriesDetails/categoriesDetails.jsx";
 
 export const router = createBrowserRouter([
   {
