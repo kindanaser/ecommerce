@@ -1,0 +1,31 @@
+img{
+    width: 150px;
+    text-align: center;
+}
+.swiper-pagination-bullet{
+    background:#212529;
+}
+.swiper-wrapper{
+    padding-block:30px
+}
+.swiper-button-prev , .swiper-button-next{
+     background-color: #212529;
+     color:antiquewhite;
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+}
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after , .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+    font-size: 20px;
+}
+.swiper-custom-pagination{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    margin:auto;
+}
+.category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
