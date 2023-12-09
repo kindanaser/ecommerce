@@ -13,8 +13,7 @@ import ProtectedRoutes from "../components/web/protectedRoute/ProtectedRoutes.js
 import Profile from "../components/web/profile/Profile.jsx";
 import SendCode from "../components/web/login/SendCode.jsx";
 import ForgetPassword from "../components/web/login/ForgetPassword.jsx";
-import CategoriesDetails from "../components/web/categories/categoriesDetails/categoriesDetails.jsx";
-
+import CategoriesDetails from "../components/web/categories/categoriesDetails/CategoriesDetails.jsx";
 export const router = createBrowserRouter([
   {
     path:'/',
