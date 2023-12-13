@@ -1,22 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { UserContext } from '../context/User.jsx';
 import { useQuery } from 'react-query';
 
 export default function UserOrder() {
     let {getOrderContext} = useContext(UserContext);
+    let [length] = useState(0);
     const getOrder = async()=>{
         const res = await getOrderContext();
         return res;
       }
       const {data , isLoading}=useQuery("order",getOrder);
-      
+      console.log(data);
       if(isLoading){
         <p>Loading...</p>
        }
-      let length = data.orders.length;
+        length = data.orders.length;
    
       return (
-    <div className="products mt-2 w-75" id="products"> order
+    <div className="mt-2 w-75">
         <p className ="m-0">you have create a {data.orders.length} orders</p>
         <p className ="m-0"> your last order is : </p>
         <ul>
