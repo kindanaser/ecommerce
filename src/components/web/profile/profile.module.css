@@ -1,0 +1,28 @@
+.profile{
+    background-color:teal;
+    display:flex;
+    gap:40px;
+    height: 100;
+}
+.profileLinks nav{
+    background-color: black;
+    height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    align-items: center;
+    justify-content: start;
+}
+
+.profileLinks{
+    width: 300px;
+}
+
+.userData{
+    flex-grow: 1;
+}
+
+nav a {
+    color:#fff;
+    text-decoration: none;
+}

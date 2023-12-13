@@ -80,7 +80,7 @@ export default function Login(){
      <form onSubmit={formik.handleSubmit}>
         {renderInputs}
         <button type="submit" className='btn btn-outline-primary' disabled={!formik.isValid}> Login </button>
-       <Link to='/forgetpassword' className='ms-2 btn btn-outline-primary text-decoration-none'>forgetpassword</Link>
+       <Link to='/sendcode' className='ms-2 btn btn-outline-primary text-decoration-none'>forgetpassword</Link>
 
      </form>
     </div>

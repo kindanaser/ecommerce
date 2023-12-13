@@ -6,7 +6,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-export default function SendCode() {
+export default function ForgetPassword() {
     const navigate = useNavigate();
     const initialValues ={
         email:'',

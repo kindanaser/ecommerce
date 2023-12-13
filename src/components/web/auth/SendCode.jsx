@@ -6,13 +6,13 @@ import { toast } from 'react-toastify';
 import { sendCodeSchema } from '../validation/validate.js';
 import Input from '../../pages/Input.jsx';
 
-export default function ForgetPassword() {
+export default function SendCode() {
     const navigate = useNavigate();
     const initialValues ={
         email:'' }
 
-    const onSubmit= async email=>{
-            const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/auth/sendcode`,email);
+    const onSubmit= async users=>{
+            const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/auth/sendcode`,users);
             if(data.message =='success'){
              formik.resetForm();
              toast.success('Check your email', {
@@ -26,7 +26,7 @@ export default function ForgetPassword() {
                  theme: "dark",
                  });
             }
-            navigate("/sendcode")
+            navigate("/forgetpassword")
          }
          const formik = useFormik ({
             initialValues,
@@ -53,14 +53,13 @@ export default function ForgetPassword() {
                    onBlur={formik.handleBlur} 
                    onChange={formik.handleChange}/>
         )
-//     {/* <Link to='/sendcode' className='text-decoration-none text-dark'>sendcode</Link> */}
+
   return (
       <div className='container my-3'>
-      <p className="my-2 fs-4">ForgetPassword</p>
+      <h2>Send Code</h2>
       <form onSubmit={formik.handleSubmit}>
       {renderInputs}
-      <button className='ms-2 btn btn-outline-primary' type="submit" disabled={!formik.isValid}>sendcode
-    
+      <button className='ms-2 btn btn-outline-primary' type="submit" disabled={!formik.isValid}>send    
       </button>
       </form>
       </div>

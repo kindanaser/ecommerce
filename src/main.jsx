@@ -8,15 +8,18 @@ import {QueryClient,QueryClientProvider} from 'react-query'
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css'
 import UserContextProvider from './components/web/context/User.jsx'
+import { CartContextProvider } from './components/web/context/Cart.jsx'
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
     <>
     <UserContextProvider>
+    <CartContextProvider>
      <QueryClientProvider client={queryClient}>
-    <ToastContainer />
-    <App />
-    </QueryClientProvider>
+     <ToastContainer />
+     <App />
+     </QueryClientProvider>
+     </CartContextProvider>
     </UserContextProvider>
     </>
    

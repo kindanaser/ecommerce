@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/User.jsx";
 import { CartContext } from "../context/Cart.jsx";
@@ -6,11 +6,8 @@ import { CartContext } from "../context/Cart.jsx";
 export default function Navbar() {
   const navigate = useNavigate();
   
-  let {setCount , count , getCartContext} = useContext(CartContext);
-  const getCount = async()=>{
-    const res = await setCount();
-   setCount(res.count);
-  }
+  let {count} = useContext(CartContext);
+
   let { userToken , setUserToken , userData , setUserData} = useContext(UserContext);
   const Logout =()=>{
     localStorage.removeItem("userToken");
@@ -19,17 +16,13 @@ export default function Navbar() {
     navigate('/');
   }
 
-  useEffect( ()=>{
-    getCount()
-    getCartContext()
-  } ,[])
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to='/'>
           ecommerce
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -61,7 +54,7 @@ export default function Navbar() {
             {userToken ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">
-                  Cart - {count}
+                  Cart  <span class="badge bg-secondary">{count}</span>
                 </Link>
               </li>
             ) : null}

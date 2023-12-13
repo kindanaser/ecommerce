@@ -1,17 +1,26 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/User.jsx'
-
+import style from './profile.module.css'
+import { Link, Outlet } from 'react-router-dom';
 export default function Profile() {
-     let {userData} = useContext(UserContext);
+     let {loading} = useContext(UserContext);
+     if(loading){
+      <p>Loading...</p>
+     }
   return (
-<div className="card border-success m-3" style={{maxWidth: '18rem'}}>
-  <div className="text-success card-header fw-bold">{userData.userName} <span className='mx-2'>|</span> {userData.status}</div>
-  <div className="card-body text-success">
-    <h5 className="card-title">Your email is : {userData.email}</h5>
-    <p className="card-text">Your role is : {userData.role}</p>
-  </div>
-</div>
 
+    <aside className={`${style.profile}`}>
+      <div className={`${style.profileLinks}`}>
+        <nav>
+        <Link to=''>Info</Link>
+        <Link to='contact'>Contact</Link>
+        <Link to='userOrder'>Order</Link>
+        </nav>
+      </div>
+      <div className={`${style.userData}`}>
+        <Outlet />
+      </div>
+    </aside> 
 
   )
 }

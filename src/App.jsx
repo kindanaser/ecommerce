@@ -1,16 +1,19 @@
 import { RouterProvider} from "react-router-dom";
-import { CreateContextProvider } from "./components/web/context/Cart.jsx";
+import { CartContext } from "./components/web/context/Cart.jsx";
 import { router } from "./layouts/Routes.jsx";
 import { UserContext } from "./components/web/context/User.jsx";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 export default function App() {
-  const {setUserToken} = useContext(UserContext);
-  if(localStorage.getItem("userToken") != null){
-   setUserToken(localStorage.getItem("userToken"));
-  }
+  let {setUserToken} = useContext(UserContext);
+  let {setCount , getCartContext} = useContext(CartContext);
+  useEffect( ()=>{
+    if(localStorage.getItem("userToken") != null){
+      setUserToken(localStorage.getItem("userToken"));
+      setCount(getCartContext().count)
+     }
+    } , [])
+ 
   return (
-       <CreateContextProvider>
        <RouterProvider router={router} />
-       </CreateContextProvider>
   )
 }

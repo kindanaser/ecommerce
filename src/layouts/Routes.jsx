@@ -11,9 +11,13 @@ import DashboardHome from "../components/dashboard/home/DashboardHome.jsx";
 import DashboardCategories from "../components/dashboard/categories/DashboardCategories.jsx";
 import ProtectedRoutes from "../components/web/protectedRoute/ProtectedRoutes.jsx";
 import Profile from "../components/web/profile/Profile.jsx";
-import SendCode from "../components/web/login/SendCode.jsx";
-import ForgetPassword from "../components/web/login/ForgetPassword.jsx";
 import CategoriesDetails from "../components/web/categories/categoriesDetails/CategoriesDetails.jsx";
+import UserInfo from "../components/web/profile/UserInfo.jsx";
+import UserContact from "../components/web/profile/UserContact.jsx";
+import SendCode from "../components/web/auth/SendCode.jsx";
+import ForgetPassword from "../components/web/auth/ForgetPassword.jsx";
+import UserOrder from "../components/web/profile/UserOrder.jsx";
+import Order from "../components/web/orders/Order.jsx";
 export const router = createBrowserRouter([
   {
     path:'/',
@@ -46,8 +50,28 @@ export const router = createBrowserRouter([
           element:<Categories />
         },
         {
+          path:'order',
+          element:<Order />
+        },
+        {
           path:'profile',
-          element:<Profile />
+          element: 
+          <ProtectedRoutes>
+          <Profile />
+          </ProtectedRoutes>,
+          children:[
+            {
+              index:true,
+              element:<UserInfo/>
+            },
+            {
+              path:'contact',
+              element:<UserContact/>
+            },    {
+              path:'userOrder',
+              element:<UserOrder/>
+            },
+          ]
         },
         {
           path:'cart',
