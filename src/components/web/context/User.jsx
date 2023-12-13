@@ -7,7 +7,9 @@ export default function UserContextProvider({children}){
 
     let [userToken, setUserToken] = useState(null);
     let [userData , setUserData] = useState(null);
+    let [userOrder , setUserOrder] = useState(null);
     let [loading,setLoading] = useState(true);
+
     const getUserData = async()=>{
        if(userToken) {
         const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/user/profile` , 
@@ -18,22 +20,27 @@ export default function UserContextProvider({children}){
        
     }
     const getOrderContext = async ()=>{
-        try{
+        //  try{
             const token = localStorage.getItem("userToken");
            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/order` ,
            {headers:{Authorization:`Tariq__${token}`}});
-            return data
-        }catch(error){
-           console.log(error);
-        }
-          
+           let length = (data.orders.length) -1 ;
+           setUserOrder(data.orders[length])
+        //     return data
+        // }catch(error){
+        //    console.log(error);
+        // }
        }
     useEffect(()=>{
         getUserData()}
     ,[userToken])
+
+    useEffect(()=>{
+        getOrderContext()}
+    ,[userToken])
  
     return <UserContext.Provider value={{userToken, setUserToken , userData , 
-    setUserData , loading , getOrderContext}}>
+    setUserData , loading , userOrder ,setUserOrder , getOrderContext }}>
      {children}
     </UserContext.Provider>
 }

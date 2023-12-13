@@ -51,7 +51,7 @@ export default function Order() {
      }catch(error){
         console.log(error);
     }
-    navigate('/userOrder');
+    navigate('/');
 }
 
      const formik = useFormik ({

@@ -43,7 +43,7 @@ export function CartContextProvider({children}) {
          quantity += (data.products[i].quantity) ;
          }
          total = quantity ;
-        console.log(data.products[0].quantity)
+        // console.log(data.products[0].quantity)
         setCount(total)
          return data
      }catch(error){

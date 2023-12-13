@@ -1,35 +1,42 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../context/User.jsx';
-import { useQuery } from 'react-query';
+// import { useQuery } from 'react-query';
 
 export default function UserOrder() {
-    let {getOrderContext} = useContext(UserContext);
-    let [length] = useState(0);
-    const getOrder = async()=>{
-        const res = await getOrderContext();
-        return res;
-      }
-      const {data , isLoading}=useQuery("order",getOrder);
-      console.log(data);
-      if(isLoading){
+    let {userOrder} = useContext(UserContext);
+    let {isloading} = useContext(UserContext);
+    // if(loading){
+    //  <p>Loading...</p>
+    // }
+    // let [length] = useState(0);
+    // const getOrder = async()=>{
+    //     const res = await getOrderContext();
+    //     length = (res.orders.length) -1 ;
+    //     return res.orders[length];
+    //   }
+    //   const {isLoading , data}=useQuery("order",getOrder);
+     
+      if(isloading){
         <p>Loading...</p>
        }
-        length = data.orders.length;
+
+  //  useEffect( ()=>{setUserOrder()} ,[])
+      //  console.log(userOrder);
+  
    
       return (
-    <div className="mt-2 w-75">
-        <p className ="m-0">you have create a {data.orders.length} orders</p>
-        <p className ="m-0"> your last order is : </p>
-        <ul>
-          <li>number of product is : {data.orders[length-1].products.length}</li>
-          <li>the final price is : {data.orders[length-1].finalPrice}</li>
-          <li>the payment type is : {data.orders[length-1].paymentType}</li>
-          <li>your address is : {data.orders[length-1].address}</li>
-          <li>your phone is : {data.orders[length-1].phoneNumber}</li>
-         {data.orders[length-1].couponName == " "?
-         <li>the coupon used is : {data.orders[length-1].couponName}</li>:
-          <li>the coupon used is : you dont use a coupon </li>}
-        </ul>
+    <div className="mt-2 w-75"> orders
+   
+     <p> about your order : </p>
+          <p>the final price is : {userOrder.finalPrice} </p>
+          <p>the payment type is : {userOrder.paymentType}</p>
+          <p>the order status is : {userOrder.status}</p>
+          <p>your address is : {userOrder.address}</p>
+          <p>your phone is : {userOrder.phoneNumber}</p>
+         {userOrder.couponName == ""?
+         <p>the coupon used is : {userOrder.couponName}</p>:
+          <p>the coupon used is : you dont use a coupon </p>
+          }
     </div>
 
   )
