@@ -91,12 +91,17 @@ export default function Register(){
     )
   return (
     <>
-    <div className='container'>
-     <h2>Create Account</h2>
+    <div className='container py-5'>
+    <div className='row d-flex justify-content-center'>
+        <div className='col-md-8 '>
+        <h2 className='fs-3 fst-italic mb-4'>Create Account</h2>
      <form onSubmit={formik.handleSubmit}>
         {renderInputs}
-        <button type="submit" disabled={!formik.isValid} encType="multipart/form-data"> Register </button>
+        <button type="submit" disabled={!formik.isValid} encType="multipart/form-data" 
+        className='btn btn-outline-secondary'> Register </button>
      </form>
+    </div>
+    </div>
     </div>
     </>
   )

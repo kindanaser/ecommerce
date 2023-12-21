@@ -22,4 +22,10 @@ export const registerSchema =  yup.object({
   export const orderSchema =  yup.object({
     phone:yup.string().required("user phone is required") .length(10,"must be 10 numbers"),
     address:yup.string() .required("address is required"),
+    couponName:yup.string() .notRequired("address is not required"),
+  })
+
+  export const commentSchema =  yup.object({
+    comment:yup.string().required("your comment is required") .max(150,"your comment is too long"),
+    rating:yup.number() .required("your rating is required") .min(1,'at least one') .max(5,'The rating must be out of five'),
   })

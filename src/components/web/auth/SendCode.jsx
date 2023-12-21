@@ -55,14 +55,17 @@ export default function SendCode() {
         )
 
   return (
-      <div className='container my-3'>
-      <h2>Send Code</h2>
+      <div className='container py-5'>
+          <div className='row d-flex justify-content-center'>
+        <div className='col-md-8 '>
+        <h2 className='fs-3 fst-italic mb-4'>Send Code</h2>
       <form onSubmit={formik.handleSubmit}>
       {renderInputs}
-      <button className='ms-2 btn btn-outline-primary' type="submit" disabled={!formik.isValid}>send    
+      <button className='ms-2 btn btn-outline-secondary' type="submit" disabled={!formik.isValid}>send    
       </button>
       </form>
       </div>
-
+      </div>
+      </div>
   )
 }

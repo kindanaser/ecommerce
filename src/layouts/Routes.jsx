@@ -18,6 +18,8 @@ import SendCode from "../components/web/auth/SendCode.jsx";
 import ForgetPassword from "../components/web/auth/ForgetPassword.jsx";
 import UserOrder from "../components/web/profile/UserOrder.jsx";
 import Order from "../components/web/orders/Order.jsx";
+import Header from "../components/web/header/Header.jsx";
+import AllProducts from "../components/web/allProducts/AllProducts.jsx";
 export const router = createBrowserRouter([
   {
     path:'/',
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
         {
           path:'login',
           element:<Login/>
+        },
+        {
+          path:'header',
+          element:<Header/>
+        },
+        {
+          path:'allProducts',
+          element:<AllProducts/>
         },
         {
           path:'sendcode',

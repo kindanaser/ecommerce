@@ -8,6 +8,7 @@ export default function UserContextProvider({children}){
     let [userToken, setUserToken] = useState(null);
     let [userData , setUserData] = useState(null);
     let [userOrder , setUserOrder] = useState(null);
+    let [userOrders , setUserOrders] = useState(null);
     let [loading,setLoading] = useState(true);
 
     const getUserData = async()=>{
@@ -20,16 +21,12 @@ export default function UserContextProvider({children}){
        
     }
     const getOrderContext = async ()=>{
-        //  try{
             const token = localStorage.getItem("userToken");
            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/order` ,
            {headers:{Authorization:`Tariq__${token}`}});
            let length = (data.orders.length) -1 ;
            setUserOrder(data.orders[length])
-        //     return data
-        // }catch(error){
-        //    console.log(error);
-        // }
+           setUserOrders(data.orders);
        }
     useEffect(()=>{
         getUserData()}
@@ -40,7 +37,7 @@ export default function UserContextProvider({children}){
     ,[userToken])
  
     return <UserContext.Provider value={{userToken, setUserToken , userData , 
-    setUserData , loading , userOrder ,setUserOrder , getOrderContext }}>
+    setUserData , loading , userOrder ,setUserOrder , getOrderContext , userOrders }}>
      {children}
     </UserContext.Provider>
 }

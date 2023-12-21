@@ -75,14 +75,18 @@ export default function Login(){
     )
   return (
     <>
-    <div className='container my-3'>
-     <h2>Login</h2>
+    <div className='container py-5'>
+        <div className='row d-flex justify-content-center'>
+        <div className='col-md-8 '>
+        <h2 className='fs-3 fst-italic mb-4'>Login</h2>
      <form onSubmit={formik.handleSubmit}>
         {renderInputs}
-        <button type="submit" className='btn btn-outline-primary' disabled={!formik.isValid}> Login </button>
-       <Link to='/sendcode' className='ms-2 btn btn-outline-primary text-decoration-none'>forgetpassword</Link>
+        <button type="submit" className='btn btn-outline-secondary' disabled={!formik.isValid}> Login </button>
+       <Link to='/sendcode' className='ms-2 btn btn-outline-secondary text-decoration-none'>forgetpassword</Link>
 
      </form>
+     </div>
+   </div>
     </div>
     </>
   )

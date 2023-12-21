@@ -1,0 +1,12 @@
+.page-link{
+  color: #6c757d !important ;
+}
+.page-link:hover{
+    color: #6c757d ;
+}
+.page-link{
+  box-shadow : none !important;
+}
+.proImg {
+text-align: center;
+}

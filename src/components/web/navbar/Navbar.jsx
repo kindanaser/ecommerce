@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container">
         <Link className="navbar-brand" to='/'>
-          ecommerce
+         T-SHOP
         </Link>
         <button
           className="navbar-toggler"
@@ -42,14 +42,14 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/categories">
                 Categories
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+            <Link className="nav-link" to="/allProducts">
                 Products
-              </a>
+              </Link>
             </li>
             {userToken ? (
               <li className="nav-item">

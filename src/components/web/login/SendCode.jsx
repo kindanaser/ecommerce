@@ -6,7 +6,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-export default function ForgetPassword() {
+export default function SendCode() {
     const navigate = useNavigate();
     const initialValues ={
         email:'',
@@ -71,15 +71,12 @@ export default function ForgetPassword() {
 )
   return (
     <div className='container my-3'>
-         <div className='row d-flex justify-content-center'>
-        <div className='col-md-8 '>
-        <h2 className='fs-3 fst-italic mb-4'>Reset Password</h2>
+        
+    <h2>Reset Password</h2>
     <form onSubmit={formik.handleSubmit}>
        {renderInputs}
-       <button type="submit" className='btn btn-outline-secondary text-decoration-none' disabled={!formik.isValid}> reset password </button>
+       <button type="submit" className='btn btn-outline-primary text-decoration-none' disabled={!formik.isValid}> reset password </button>
     </form>
-   </div>
-   </div>
    </div>
   )
 }

@@ -7,7 +7,7 @@ export const CartContext = createContext(null);
 export function CartContextProvider({children}) {
     let [count , setCount] = useState(0);
     let [data , setData] = useState(null);
-    // let [quntity] = useState(0);
+ 
     const addToCartContext = async (productId)=>{
         try{
             const token = localStorage.getItem("userToken");
@@ -43,7 +43,6 @@ export function CartContextProvider({children}) {
          quantity += (data.products[i].quantity) ;
          }
          total = quantity ;
-        // console.log(data.products[0].quantity)
         setCount(total)
          return data
      }catch(error){
@@ -60,7 +59,6 @@ export function CartContextProvider({children}) {
           const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/cart/removeItem`,{productId},
           {headers:{Authorization:`Tariq__${token}`}})
           setCount(data.cart.products.length);
-          console.log(data.cart);
           return data;
         }catch(error){
             console.log(error);

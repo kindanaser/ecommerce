@@ -1,0 +1,31 @@
+/* start footer */
+.footer{
+    background-color: #f8f9fa;
+}
+.footer li{
+     margin-bottom: 8px;
+}
+
+.footer li a{
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.footer li a:hover{
+    color:  rgba(17, 17, 17, 0.829)!important;
+}
+
+.footer p a { 
+    padding-inline: 4px;}
+    
+.footer .copyright{
+    border-top: 1px solid rgba(3, 3, 3, 0.11);
+    font-size: 12px;
+}
+
+

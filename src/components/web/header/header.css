@@ -1,0 +1,29 @@
+.header{
+   background-image: url('./img/headerEdit1.jpg');
+   /* background-repeat: repeat; */
+   background-position-x: 47px;
+   background-position-y: -44px;
+   height:525px ;
+}
+/* .container{
+   display:inline-block
+} */
+.header .text{
+   letter-spacing: 3px;
+   font-family: monospace;
+   border-right: 5px solid;
+   font-weight:bold;
+   width: fit-content;
+   white-space: nowrap;
+   overflow: hidden;
+   animation: typing 5s steps(21) ,    cursor .4s step-end infinite alternate ;
+   -webkit-animation: typing 5s steps(21) ,    cursor .4s step-end infinite alternate ;
+}
+
+@keyframes cursor {
+   50% {border-color: transparent;}
+}
+@keyframes typing {
+  0% {width:0%;}
+  50% {width:35%;}
+}

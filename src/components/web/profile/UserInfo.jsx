@@ -9,9 +9,10 @@ export default function UserInfo() {
      <p>Loading...</p>
     }
   return (
-    <div>
-         <h2>{userData.userName}</h2>
-         <img src={userData.image.secure_url} />
+
+    <div className='py-3 d-flex align-items-center'>
+       <img src={userData.image.secure_url} className='userImg rounded-circle' />
+         <h2 className='fst-italic ms-3'>{userData.userName} - {userData.role}</h2>
     </div>
   )
 }
