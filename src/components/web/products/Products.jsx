@@ -100,7 +100,7 @@ const renderInputs = inputs.map( (input,index)=>
     <div className='container py-4'>
          <div className='row'>
          <div className='subImg col-md-1'>
-         {data.subImages.map( (img , index)=>
+         {data && data.subImages.map( (img , index)=>
           <div className='images mt-3' key={index}> 
           <img src={img.secure_url} className='' />
           </div>)}
