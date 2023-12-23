@@ -120,7 +120,7 @@ const renderInputs = inputs.map( (input,index)=>
            </div>
             <p className='desc border-top pt-3 mb-4 '>{data.description}</p>   
             <h4 className='fs-5 text-dark fst-italic mb-1 '>reviews about this product</h4>
-            {data.reviews? data.reviews.map( (rev)=> 
+            {data && data.reviews? data.reviews.map( (rev)=> 
             <div className='review d-flex align-items-center'>
              <img src={rev.createdBy.image.secure_url} className='userImg me-3 my-1 rounded-circle' />
              <span className='me-3 '>{rev.createdBy.userName}:</span>
